@@ -129,6 +129,9 @@ def check_resistance_counts(qcpass: pd.DataFrame, classification: pd.DataFrame) 
         how="inner",
     )
 
+merged = merged.drop(columns=[sample_col_class])  # drop duplicate lowercase 'sample' col
+merged["Year"] = merged["Year"].astype(float).astype(int)  # normalize Year to clean int
+
     assert len(merged) == EXPECTED_TANZANIA_QCPASS, (
         f"Merged row count mismatch: got {len(merged)}, expected {EXPECTED_TANZANIA_QCPASS} "
         "(possible dropped/duplicated samples in join)"
