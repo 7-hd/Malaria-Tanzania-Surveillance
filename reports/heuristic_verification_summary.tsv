@@ -1,0 +1,11 @@
+Drug	Locus	Provenance	Match	Total	MatchRate
+Chloroquine	crt_76[K]	DOCUMENTED (confirmed in Pf8_resistance_classification.pdf)	1025.0	1025.0	1.0
+Pyrimethamine	dhfr_108[S]	DOCUMENTED (confirmed in Pf8_resistance_classification.pdf)	1025.0	1025.0	1.0
+Sulfadoxine	dhps_437[G]	EMPIRICAL (pattern-matched against classification data; NOT yet cross-checked against PDF rule text)	1025.0	1025.0	1.0
+Mefloquine	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+Artemisinin	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+Piperaquine	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+SP (uncomplicated)	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+SP (IPTp)	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+AS-MQ	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
+DHA-PPQ	N/A (multi-locus/complex)	NOT TESTED (multi-locus/complex rule; not extracted from PDF - not guessed)			
