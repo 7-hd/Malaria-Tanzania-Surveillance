@@ -5,7 +5,6 @@ Unit tests for statistical formulas (Wilson score CIs and Cochran-Armitage trend
 """
 
 import pytest
-from scipy import stats
 from statistical_analysis import cochran_armitage_test, wilson_ci
 
 
@@ -15,10 +14,10 @@ def test_wilson_ci_bounds():
     assert low == 0.0
     assert 0.0 < high < 0.35
 
-    # 10 out of 10 -> upper bound must be 1.0, lower bound < 1.0
+    # 10 out of 10 -> upper bound must be 1.0 (within float tolerance), lower bound < 1.0
     low, high = wilson_ci(10, 10)
     assert 0.65 < low < 1.0
-    assert high == 1.0
+    assert high == pytest.approx(1.0)
 
     # 50 out of 100 -> center should be near 0.5
     low, high = wilson_ci(50, 100)
@@ -27,13 +26,13 @@ def test_wilson_ci_bounds():
 
 
 def test_cochran_armitage_flat_trend():
-    # Constant proportion -> Z should be ~0, p-val = 1.0
+    # Constant proportion -> Z should be ~0, p-val = 1.0 (within float tolerance)
     r = [10, 10, 10]
     n = [100, 100, 100]
     t = [2010, 2013, 2014]
     z, p = cochran_armitage_test(r, n, t)
     assert abs(z) < 1e-6
-    assert p == 1.0
+    assert p == pytest.approx(1.0)
 
 
 def test_cochran_armitage_strong_decline():
