@@ -35,7 +35,12 @@ st.set_page_config(
 
 @st.cache_data
 def load_app_data():
-    """Loads and merges Tanzania resistance status and marker genotypes."""
+    """Loads processed Tanzania resistance status and marker genotypes."""
+    processed_path = ROOT_DIR / "data" / "processed" / "tz_markers_with_resistance.tsv"
+    if processed_path.exists():
+        return pd.read_csv(processed_path, sep="\t")
+    
+    # Fallback for local raw builds
     tz_df = build_tz_resistance_table()
     markers_df = load_markers()
     merged = pd.merge(tz_df, markers_df, on="Sample", how="inner")
