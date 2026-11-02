@@ -149,6 +149,16 @@ def check_resistance_counts(qcpass: pd.DataFrame, classification: pd.DataFrame) 
 
     return merged
 
+def build_tz_resistance_table() -> pd.DataFrame:
+    """Reusable pipeline: returns the verified Tanzania QC-pass + resistance table."""
+    samples = load_samples()
+    tz = filter_tanzania(samples)
+    tz_qcpass = filter_qcpass(tz)
+    check_breakdown(tz_qcpass)
+    classification = load_classification()
+    merged = check_resistance_counts(tz_qcpass, classification)
+    return merged
+
 def main():
     print(f"Loading samples from: {SAMPLES_PATH}")
     samples = load_samples()
